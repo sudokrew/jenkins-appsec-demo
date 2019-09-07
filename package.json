@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sudokrew/jenkins-appsec-demo/issues"
   },
-  "homepage": "https://github.com/sudokrew/jenkins-appsec-demo#readme"
+  "homepage": "https://github.com/sudokrew/jenkins-appsec-demo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
