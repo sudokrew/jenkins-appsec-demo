@@ -1,0 +1,19 @@
+{
+  "name": "jenkins-appsec-demo",
+  "version": "1.0.0",
+  "description": "Appsec test pipeline project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudokrew/jenkins-appsec-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudokrew/jenkins-appsec-demo/issues"
+  },
+  "homepage": "https://github.com/sudokrew/jenkins-appsec-demo#readme"
+}
