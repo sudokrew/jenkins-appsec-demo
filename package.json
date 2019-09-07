@@ -18,5 +18,10 @@
   "homepage": "https://github.com/sudokrew/jenkins-appsec-demo#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "request": "^2.88.0"
   }
 }
