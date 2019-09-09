@@ -1,9 +1,32 @@
 const expect = require('chai').expect;
-const request = require('request');
+const request = require('supertest');
 
-it('Index page content', (done)=>{
-  request('http://localhost:3000', (err, response, body) => {
-    expect(body).to.equal('Hello, Jenkins....');
-    done();
-  })
+describe('Loading Express app', function loadExpress() {
+  let app;
+
+  before('Load entrypoint', function() {
+    app = require('../index');
+  });
+
+  after('Unload entrypoint', function() {
+    app.close();
+  });
+
+  it('Responds to / with proper Content-Type and status', function testIndex(done) {
+    const expectedBody = {
+      msg: "Hello, Jenkins...."
+    };
+
+    request(app)
+      .get('/')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .expect(expectedBody, done)
+  });
+
+  it ('Return 404 for invalid routes', function test404(done) {
+    request(app)
+      .get('/bad/path')
+      .expect(404, done);
+  });
 });
