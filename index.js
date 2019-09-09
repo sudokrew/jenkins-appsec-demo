@@ -35,6 +35,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/admin', (req, res) => {
+  if (!req.session.loggedIn) return res.status(401).send();
+
   return res.json({ msg: "Hello admin!"});
 });
 
