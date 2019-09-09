@@ -24,10 +24,24 @@ describe('Loading Express app', function loadExpress() {
       .expect(expectedBody, done)
   });
 
-  it.skip('Cookie is NOT set before login', function testCookieAbsence(done) {
+  it.skip('Cannot access /admin without session cookie', function testAuthorization(done) {
+  });
+
+  it('Cookie is NOT set before login', function testCookieAbsence(done) {
+    request(app)
+      .get('/')
+      .expect((res) => {
+        if (res.headers["set-cookie"]) {
+          throw new Error("Session cookie set w/o login");
+        }
+      })
+      .end(done);
   });
 
   it.skip('Cookie is set after login', function testCookie(done) {
+  });
+
+  it.skip('Cookie is not persisted after close of session', function testCookiePersistence(done) {
   });
 
   it ('Return 404 for invalid routes', function test404(done) {
