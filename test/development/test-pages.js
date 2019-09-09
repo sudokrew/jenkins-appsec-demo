@@ -5,7 +5,7 @@ describe('Loading Express app', function loadExpress() {
   let app;
 
   before('Load entrypoint', function() {
-    app = require('../index');
+    app = require('../../index');
   });
 
   after('Unload entrypoint', function() {
@@ -22,6 +22,12 @@ describe('Loading Express app', function loadExpress() {
       .expect('Content-Type', /json/)
       .expect(200)
       .expect(expectedBody, done)
+  });
+
+  it.skip('Cookie is NOT set before login', function testCookieAbsence(done) {
+  });
+
+  it.skip('Cookie is set after login', function testCookie(done) {
   });
 
   it ('Return 404 for invalid routes', function test404(done) {
