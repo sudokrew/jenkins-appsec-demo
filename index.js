@@ -1,5 +1,4 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const app = express();
 
@@ -10,8 +9,8 @@ const DOMAIN = process.env.DOMAIN || 'localhost';
 const cookieOptions = {
   domain: DOMAIN,
   httpOnly: true,
-  maxAge: 5000,
-  path: "/admin",
+  expires: false,
+  // path: "/admin",
   sameSite: true
 }
 
@@ -20,7 +19,6 @@ if (process.env.NODE_ENV === 'production') {
   cookieOptions.secure = true; // serve secure cookies
 }
 
-app.use(cookieParser(COOKIE_SECRET));
 app.use(session({
   secret: COOKIE_SECRET,
   resave: false,
@@ -36,8 +34,13 @@ app.get('/', (req, res) => {
   return res.status(200).json(msg);
 })
 
-app.post('/login', (req, res) => {
+app.get('/admin', (req, res) => {
+  return res.json({ msg: "Hello admin!"});
+});
 
+app.post('/login', (req, res) => {
+  req.session.loggedIn = true;
+  return res.redirect('/admin');
 });
 
 module.exports = app.listen(PORT, () => {
