@@ -3,11 +3,12 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello, Jenkins....');
+  const msg = {
+    msg: "Hello, Jenkins...."
+  }
+  return res.status(200).json(msg);
 })
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
   console.log(`Application started on port ${port}`);
 });
-
-module.exports = app;
