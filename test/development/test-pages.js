@@ -24,7 +24,10 @@ describe('Loading Express app', function loadExpress() {
       .expect(expectedBody, done)
   });
 
-  it.skip('Cannot access /admin without session cookie', function testAuthorization(done) {
+  it('Cannot access /admin without session cookie', function testAuthorization(done) {
+    request(app)
+      .get('/admin')
+      .expect(401, done);
   });
 
   it('Cookie is NOT set before login', function testCookieAbsence(done) {
