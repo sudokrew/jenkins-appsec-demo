@@ -3,6 +3,8 @@ pipeline {
     stages {
         stage('source') {
             steps {
+                sh 'env'
+                git branch: "${GIT_BRANCH}",
                 git 'https://github.com/sudokrew/jenkins-appsec-demo'
             }
         }
