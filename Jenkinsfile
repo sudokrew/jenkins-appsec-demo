@@ -8,9 +8,7 @@ pipeline {
         }
         stage('source') {
             steps {
-                // Parse the refspec from the branch name
-                // Assumes that the branch name does NOT contain prefixing '/'
-                git branch: "${GIT_BRANCH##*/}",
+                git branch: "${GIT_BRANCH}",
                 credentialsId: 'KrewkinsRepoAccess',
                 url: 'https://github.com/sudokrew/jenkins-appsec-demo.git'
             }
