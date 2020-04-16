@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('source') {
             steps {
-                sh 'env'
                 git branch: "${GIT_BRANCH}",
-                git 'https://github.com/sudokrew/jenkins-appsec-demo'
+                credentialsId: 'KrewkinsRepoAccess',
+                url: 'https://github.com/sudokrew/jenkins-appsec-demo.git'
             }
         }
-        stage('audit') {
+        stage('DEBUG') {
             steps {
-                sh 'npm audit'
+                sh 'env'
             }
         }
         stage('test development') {
