@@ -13,12 +13,5 @@ pipeline {
                 url: 'https://github.com/sudokrew/jenkins-appsec-demo.git'
             }
         }
-        stage('DEBUG') {
-            steps {
-                sh 'pwd'
-                sh 'ls'
-                sh 'git branch'
-            }
-        }
     }
 }
