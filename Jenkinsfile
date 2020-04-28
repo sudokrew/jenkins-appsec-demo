@@ -12,10 +12,10 @@ pipeline {
                 sh 'npm run test:development'
             }
         }
-        // stage('test production') {
-        //     steps {
-        //         sh 'npm run test:production'
-        //     }
-        // }
+        stage('test production') {
+            steps {
+                sh 'npm run test:production'
+            }
+        }
     }
 }
