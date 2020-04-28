@@ -6,17 +6,17 @@ pipeline {
                 git 'https://github.com/sudokrew/jenkins-appsec-demo'
             }
         }
-        stage('audit') {
-            steps {
-                sh 'npm audit'
-            }
-        }
-        // stage('test development') {
+        // stage('audit') {
         //     steps {
-        //         sh 'npm install'
-        //         sh 'npm run test:development'
+        //         sh 'npm audit'
         //     }
         // }
+        stage('test development') {
+            steps {
+                sh 'npm install'
+                sh 'npm run test:development'
+            }
+        }
         // stage('test production') {
         //     steps {
         //         sh 'npm run test:production'
