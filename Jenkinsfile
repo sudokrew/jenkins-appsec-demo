@@ -11,16 +11,16 @@ pipeline {
                 sh 'npm audit'
             }
         }
-        stage('test development') {
-            steps {
-                sh 'npm install'
-                sh 'npm run test:development'
-            }
-        }
-        stage('test production') {
-            steps {
-                sh 'npm run test:production'
-            }
-        }
+        // stage('test development') {
+        //     steps {
+        //         sh 'npm install'
+        //         sh 'npm run test:development'
+        //     }
+        // }
+        // stage('test production') {
+        //     steps {
+        //         sh 'npm run test:production'
+        //     }
+        // }
     }
 }
