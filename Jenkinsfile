@@ -8,6 +8,7 @@ pipeline {
         // }
         stage('test development') {
             steps {
+                sh 'env'
                 sh 'npm install'
                 sh 'npm run test:development'
             }
