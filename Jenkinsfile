@@ -24,6 +24,8 @@ pipeline {
                 VERSION="0.0.0"
             }
             steps {
+                echo "TEST COMMIT" > tmp.txt
+
                 withCredentials([usernamePassword(credentialsId: 'KrewkinsRepoAccess', passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GITHUB_USERNAME')]) {
                   sh('''
                     git config --local user.email "devops+krewkins@sudokrew.com"
