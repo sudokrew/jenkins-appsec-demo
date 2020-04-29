@@ -36,7 +36,7 @@ pipeline {
                     git add .
                     git commit -m "Bump $DEPLOY_ENVIRONMENT Docker image version to $VERSION"
                     hub push origin deploy/$VERSION
-                    hub pull-request -b development -m "Docker version bump: $VERSION" -m "Triggered by pull request: $CHANGE_URL" --reviewer maliaoreta
+                    hub pull-request -b jenkins-test -m "Docker version bump: $VERSION" -m "Triggered by pull request: $CHANGE_URL" --reviewer maliaoreta
                   ''')
                 }
             }
