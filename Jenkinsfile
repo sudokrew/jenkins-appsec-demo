@@ -24,7 +24,7 @@ pipeline {
                 VERSION="0.0.0"
             }
             steps {
-                echo "TEST COMMIT" > tmp.txt
+                sh 'echo "TEST COMMIT" > tmp.txt'
 
                 withCredentials([usernamePassword(credentialsId: 'KrewkinsRepoAccess', passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GITHUB_USERNAME')]) {
                   sh('''
