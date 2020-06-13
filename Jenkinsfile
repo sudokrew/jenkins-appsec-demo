@@ -3,6 +3,8 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
+                sh 'echo "Checking commits..."'
+
                 // Skip any builds where the last commit matches the skipPattern regex
                 scmSkip(deleteBuild: true, skipPattern:'.*skip ci.*')
             }
