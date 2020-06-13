@@ -1,25 +1,14 @@
 pipeline {
-    agent { docker { image 'node:12.3.1' } }
+    agent { docker { image 'node:10.18.0' } }
     stages {
-        stage('source') {
+        // stage('Checkout') {
+        //     steps {
+        //         scmSkip(deleteBuild: true, skipPattern:'.*\\[skip ci\\].*')
+        //     }
+        // }
+        stage('test') {
             steps {
-                git 'https://github.com/sudokrew/jenkins-appsec-demo'
-            }
-        }
-        stage('audit') {
-            steps {
-                sh 'npm audit'
-            }
-        }
-        stage('test development') {
-            steps {
-                sh 'npm install'
-                sh 'npm run test:development'
-            }
-        }
-        stage('test production') {
-            steps {
-                sh 'npm run test:production'
+                sh 'echo "hello"'
             }
         }
     }
