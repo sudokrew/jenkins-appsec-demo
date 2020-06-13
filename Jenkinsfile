@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo "Checking commits....."'
 
                 // Skip any builds where the last commit matches the skipPattern regex
-                scmSkip(deleteBuild: false, skipPattern:'.*skip ci.*')
+                scmSkip(deleteBuild: true, skipPattern:'.*skip ci.*')
             }
         }
         stage('test') {
