@@ -5,6 +5,7 @@ libraries {
   npm {
     npmRegistryScopeName = 'sudokrew'
     npmCredentialsId = 'GH'
+    npmRunCommand = 'test:development'
   }
   semantic_release {
     semanticReleaseArgs = '--dry-run'
