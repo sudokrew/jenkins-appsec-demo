@@ -1,4 +1,4 @@
 node {
-  checkout scm
+  checkout
   test()
 }
