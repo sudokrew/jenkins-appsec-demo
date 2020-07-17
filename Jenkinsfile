@@ -1,3 +1,7 @@
-merge = true
-
-pipeline_template = pipeline_template_name
+node {
+  checkout scm
+  
+  audit()
+  test dev
+  test prod
+}
